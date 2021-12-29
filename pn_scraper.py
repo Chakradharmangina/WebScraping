@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-ai=0
 furniturename=[]
 links = []
 furnituredetails = []
@@ -29,8 +28,6 @@ for ii in newsites:
             category.append(furcatogire.text.strip())
         price.append(furprice.text)
         furniturename.append(ii)
-        ai+=1
-    if ai>100:
-        df = pd.DataFrame({'Furniture Type': furniturename, ' Furniture Details': furnituredetails, 'Price': price,'Category': category,'Link':links})
-        df.to_csv('output.csv', index=False, encoding='utf-8')
-        exit()
+df = pd.DataFrame({'Furniture Type': furniturename, ' Furniture Details': furnituredetails, 'Price': price,'Category': category,'Link':links})
+df.to_csv('output.csv', index=False, encoding='utf-8')
+exit()
